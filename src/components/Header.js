@@ -89,7 +89,7 @@ const [show, setShow] = useState(false);
       <button className="menu-button" onClick={handleClick}>
         <MenuIcon />Menu
       </button>
-      Truman Enterprise Narrowboat Trust
+      Truman Enterprise Narrowboat TrustEEeeeee
     </Container>
   );
 }
