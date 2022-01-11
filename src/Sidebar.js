@@ -5,6 +5,7 @@ import Divider from "@material-ui/core/Divider";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import Collapse from "@material-ui/core/Collapse";
+import './index.css'
 
 function SidebarItem({ depthStep = 10, depth = 0, expanded, item, ...rest }) {
   const [collapsed, setCollapsed] = React.useState(true);
@@ -78,8 +79,9 @@ function SidebarItem({ depthStep = 10, depth = 0, expanded, item, ...rest }) {
   );
 }
 
-function Sidebar({ items, depthStep, depth, expanded }) {
+function Sidebar({ items, depthStep, depth, expanded, isOpen, click }) {
   return (
+    <div onClick={click} className={isOpen?"":"hidden"}>
     <div className="sidebar">
       <List disablePadding dense>
         {items.map((sidebarItem, index) => (
@@ -97,6 +99,7 @@ function Sidebar({ items, depthStep, depth, expanded }) {
           </React.Fragment>
         ))}
       </List>
+    </div>
     </div>
   );
 }

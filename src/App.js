@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import HomeIcon from "@material-ui/icons/Home";
 import ReceiptIcon from "@material-ui/icons/Receipt";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import DesktopWindowsIcon from "@material-ui/icons/DesktopWindows";
 import SettingsIcon from "@material-ui/icons/Settings";
 import Sidebar from "./Sidebar";
+import MenuButton from "./components/MenuButton";
 import Header from "./components/Header";
 import styled from 'styled-components';
 
@@ -79,10 +80,13 @@ const items = [
 ];
 
 function App() {
+  const [isOpen,setIsOpen] = useState(false)
+  const toggle = ()=>setIsOpen(current=>!current)
   return (
     <div>
       <Header />
-      <Sidebar items={items} />
+      <MenuButton click={toggle} />
+      <Sidebar isOpen={isOpen} click={toggle} />
     </div>
   );
 }
